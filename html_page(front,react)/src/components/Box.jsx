@@ -8,7 +8,7 @@ function Box(props){
         <div className='box'>
         Box{props.num}{props.name}
         <br />
-        <button onClick={clickMe}>클릭</button>
+        <button onClick={clickMe}>클릭flr</button>
       </div>
     )
 }

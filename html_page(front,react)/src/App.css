@@ -1,4 +1,50 @@
 
-.box{
-  border: 1px solid black ;
+
+.start{
+  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: aquamarine;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+.container {
+  position: relative;
+}
+.white_plane{
+  position: absolute;
+  left: 0px;
+  top: 200px;
+  transform: translateX(-27%);
+}
+
+.black_plane{
+  position: absolute;
+  right: 0px;
+  top: 200px;
+  transform: translateX(15%);
+}
+.container_button_logo {
+position: absolute;
+top: 350px;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: #ffffff;
+padding: 10px;
+border-radius: 5px;
+
+}
+.logo{
+  margin-bottom: 200px;
+  font-size: 200px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
 }

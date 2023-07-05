@@ -1,18 +1,27 @@
-
 import './App.css';
-import Box from "./Box"
-function App() {
+import black_plane from './image/black_plane.jpg'
+import white_plane from './image/white_plane.jpg'
+
+function App(){
   return (
-    <>
-    <div>
-      hi
+    <div className="container">
+
+   
+   <img src={black_plane} className='black_plane'/>
+   
+    <div className="container_button_logo">
+        <div className="logo">Logo</div>   
+    
+        <div className="start">시작하기</div>      
     </div>
-        <Box name="heo" num="1"/>
-        <Box name="kim" num="2"/>
-        <Box name="joe" num="3"/>
-        <Box name="hong" num="4"/>
-        
-    </>
+    
+    <img src={white_plane} className='white_plane'/>
+  
+
+</div>
+
+
+    
   );
 }
 
