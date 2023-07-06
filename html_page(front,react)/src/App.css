@@ -16,25 +16,23 @@
     font-weight: bold;
     margin: 0 auto;
 }
-.container {
-  position: relative;
-}
+
 .white_plane{
   position: absolute;
   left: 0px;
-  top: 200px;
-  transform: translateX(-27%);
+  top: 30%;
+  transform: translateX(-15%);
 }
 
 .black_plane{
   position: absolute;
   right: 0px;
-  top: 200px;
+  top: 30%;
   transform: translateX(15%);
 }
 .container_button_logo {
 position: absolute;
-top: 350px;
+top: 33%;
 left: 50%;
 transform: translate(-50%, -50%);
 background-color: #ffffff;

@@ -4,7 +4,7 @@ import white_plane from './image/white_plane.jpg'
 
 function App(){
   return (
-    <div className="container">
+    <>
 
    
    <img src={black_plane} className='black_plane'/>
@@ -18,7 +18,7 @@ function App(){
     <img src={white_plane} className='white_plane'/>
   
 
-</div>
+</>
 
 
     
