@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>테마 선택</title>
+  <style>
+    /* 테마의 스타일을 정의합니다. */
+    
+    /* 각 테마의 배경 이미지를 설정합니다. */
+    #theme1 {
+      background-image: url('theme1.jpg');
+    }
+    
+    #theme2 {
+      background-image: url('theme2.jpg');
+    }
+    
+    #theme3 {
+      background-image: url('theme3.jpg');
+    }
+    
+    
+    .white_plane{
+      position: absolute;
+      left: 0px;
+      top: 30%;
+      transform: translateX(-15%);
+    }
+    
+    .black_plane{
+      position: absolute;
+      right: 0px;
+      top: 30%;
+      transform: translateX(15%);
+    }
+    .theme {
+      width: 30%;
+      height: 80%;
+      margin: 10px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .container {
+      position: absolute;
+      right: 10%;
+      top: 20%;
+      height: 40%;
+      width: 80%;
+      background-color: black;
+    }
+    
+    .themes {
+      position: absolute;
+      right: 10%;
+      top: 20%;
+      height: 40%;
+      width: 80%;
+      background-color: black;
+    }
+    
+  </style>
+</head>
+<body>
+  <img src="./image/black_plane.jpg" alt="" class="black_plane">
+  <img src="./image/white_plane.jpg" alt="" class="white_plane">
+  <h1>테마 선택</h1>
+  <button onclick="showThemes()">시작하기</button>
+  
+  <div id="theme_container" style="display: none;">
+    <!-- 테마를 표시할 컨테이너입니다. -->
+    <div class="themes">
+      <div id="theme1" class="theme" onclick="selectTheme(1)"></div>
+      <div id="theme2" class="theme" onclick="selectTheme(2)"></div>
+      <div id="theme3" class="theme" onclick="selectTheme(3)"></div>
+    </div>
+  </div>
+  
+  <script src="./main_page.js"></script>
+  
+</body>
+</html>

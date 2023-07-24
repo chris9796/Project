@@ -1,6 +1,6 @@
 import React from 'react';
 
-function tart_button(){
+function Start_button(){
 
     return(
         <div className='start'>
