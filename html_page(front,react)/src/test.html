@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>테마 선택</title>
+  <style>
+    /* 테마의 스타일을 정의합니다. */
+    .theme {
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    /* 각 테마의 배경 이미지를 설정합니다. */
+    #theme1 {
+      background-image: url('theme1.jpg');
+    }
+    
+    #theme2 {
+      background-image: url('theme2.jpg');
+    }
+    
+    #theme3 {
+      background-image: url('theme3.jpg');
+    }
+  </style>
+</head>
+<body>
+  <h1>테마 선택</h1>
+  <button onclick="showThemes()">시작하기</button>
+  
+  <div id="themes" style="display: none;">
+    <!-- 테마를 표시할 컨테이너입니다. -->
+    <div id="theme1" class="theme" onclick="selectTheme(1)"></div>
+    <div id="theme2" class="theme" onclick="selectTheme(2)"></div>
+    <div id="theme3" class="theme" onclick="selectTheme(3)"></div>
+  </div>
+  
+  <script>
+    function showThemes() {
+      // 시작하기 버튼을 숨기고 테마 컨테이너를 표시합니다.
+      document.querySelector('button').style.display = 'none';
+      document.getElementById('themes').style.display = 'block';
+    }
+    
+    function selectTheme(theme) {
+      // 선택된 테마에 대한 작업을 수행합니다.
+      alert('테마 ' + theme + '이 선택되었습니다.');
+    }
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function tart_button(){
+function Start_button(){
 
     return(
         <div className='start'>
@@ -8,6 +8,6 @@ function tart_button(){
         </div>
 
 
-    )
+    );
 }
     export default Start_button
