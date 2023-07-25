@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>지도 레벨 바꾸기</title>
+    
+</head>
+<body>
+<div id="map" style="width:100%;height:1000px;"></div>
+<p>
+    <button onclick="zoomIn()">지도레벨 - 1</button>
+    <button onclick="zoomOut()">지도레벨 + 1</button>
+    <span id="maplevel"></span>
+</p>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f0c6a044e26f03c73f43af805efd0633"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+// 지도 레벨을 표시합니다
+displayLevel();
+ 
+// 지도 레벨은 지도의 확대 수준을 의미합니다
+// 지도 레벨은 1부터 14레벨이 있으며 숫자가 작을수록 지도 확대 수준이 높습니다
+function zoomIn() {        
+    // 현재 지도의 레벨을 얻어옵니다
+    var level = map.getLevel();
+    
+    // 지도를 1레벨 내립니다 (지도가 확대됩니다)
+    map.setLevel(8);
+    var moveLatLon = new kakao.maps.LatLng(37.5666103,	126.9783882);
+    map.panTo(moveLatLon); 
+    
+    // 지도 레벨을 표시합니다
+    displayLevel();
+}    
+
+function zoomOut() {    
+    // 현재 지도의 레벨을 얻어옵니다
+    var level = map.getLevel(); 
+    
+    // 지도를 1레벨 올립니다 (지도가 축소됩니다)
+    map.setLevel(level + 1);
+    
+    // 지도 레벨을 표시합니다
+    displayLevel(); 
+}    
+ 
+function displayLevel(){
+    var levelEl = document.getElementById('maplevel');
+    levelEl.innerHTML = '현재 지도 레벨은 ' + map.getLevel() + ' 레벨 입니다.';
+}
+</script>
+</body>
+</html>
+<!-- 서울 	new kakao.maps.LatLng(37.5666103,	126.9783882)
+    
+
+경기도          new kakao.maps.LatLng(37.4363177    ,	127.550802)
+
+
+경상남도        new kakao.maps.LatLng(35.4414209    ,	128.2417453)
+
+경상북도        new kakao.maps.LatLng(36.6308397    ,	128.962578)
+
+광주광역시      new kakao.maps.LatLng(35.160032 ,	126.851338)
+
+대구광역시      new kakao.maps.LatLng(35.87139  ,	128.601763)
+
+대전광역시      new kakao.maps.LatLng(36.3504396    ,	127.3849508)
+
+부산광역시      new kakao.maps.LatLng(35.179816 ,	129.0750223)
+
+세종특별자치시  new kakao.maps.LatLng(36.4803512    ,	127.2894325)
+
+울산광역시      new kakao.maps.LatLng(35.5394773    ,	129.3112994)
+
+전라남도        new kakao.maps.LatLng(34.9007274    ,	126.9571667)
+
+전라북도        new kakao.maps.LatLng(35.6910153    ,	127.2368291)
+
+제주특별자치도   new kakao.maps.LatLng(33.4273366   ,	126.5758344)
+
+충청남도        new kakao.maps.LatLng(36.6173379    ,	126.8453965)
+
+충청북도        new kakao.maps.LatLng(36.7853718    ,	127.6551404)
+
+인천광역시      new kakao.maps.LatLng(37.4559418    ,	126.7051505)
+ -->
