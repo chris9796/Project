@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item{
+            display: inline-block;
+            background-color: #6D6CFF;
+            border: 2px solid white;
+            width: 50px;
+            height: 50px;
+            color: pink;
+            text-align: center;
+            line-height: 50px;
+            font-size: larger;
+            font-weight: bolder;
+            border-radius: 10px;
+            box-shadow:5px 5px 5px 1px gray;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li class="item" draggable="true">R</li>
+        <li class="item" draggable="true">E</li>
+        <li class="item" draggable="true">A</li>
+        <li class="item" draggable="true">S</li>
+        <li class="item" draggable="true">O</li>
+        <li class="item" draggable="true">N</li>
+      </ul>
+
+</body>
+<script>
+    const list = document.querySelector(".list");
+    let currentItemIndex = null;
+    let currentItem = null;
+
+    list.addEventListener('dragstart', (e) => {
+        currentItem = e.target;
+        const listArr = [...currentItem.parentElement.children];
+        currentItemIndex = listArr.indexOf(currentItem);
+    });
+    list.addEventListener('dragover', (e) => {
+  e.preventDefault();
+});
+list.addEventListener('drop', (e) => {
+  e.preventDefault();
+
+  const currentDropItem = e.target;
+  const listArr = [...currentItem.parentElement.children];
+  const dropItemIndex = listArr.indexOf(currentDropItem);
+
+  if (currentItemIndex < dropItemIndex) {
+    currentDropItem.after(currentItem);
+  } else {
+    currentDropItem.before(currentItem);
+  }
+});
+
+</script>
+</html>

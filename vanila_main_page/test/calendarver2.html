@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            padding: 0px;
+            margin: 0px;
+            height: 100%;
+        }
+        .calendar_container{
+            
+  
+           height: 100%;
+    
+            /* 상하좌우 정중앙 정렬하기 */
+           display: flex;
+            justify-content: center;
+            align-items: center;
+
+  
+  /* 설정 */
+            
+        }
+        .calendar_box{
+            width: 1200px;
+  height: 800px;
+  background-color: rgb(104, 212, 255);
+  
+  
+  
+        }
+        table{
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+   <div class = "calendar_container">
+    <table class="calendar_box">
+        <thead>
+            <tr>
+                <td id="previous_button" style="cursor: pointer;">&#60;</td>
+                <td colspan="5">
+                    <span id="calYear"></span>년
+                    <span id="calMonth"></span>월
+                </td>
+                <td style="cursor: pointer;">&#62;</td>
+            </tr>
+            <tr>
+                <td>일</td>
+                <td>월</td>
+                <td>화</td>
+                <td>수</td>
+                <td>목</td>
+                <td>금</td>
+                <td>토</td>
+            </tr>
+        </thead>
+
+        <tbody>
+             
+        </tbody>
+    </table>
+</div>
+    
+</body>
+<script>
+    const p_but = document.querySelector("#previous_button");
+    const th = document.querySelector("thead");
+    const cal_year = document.querySelector("#calYear");
+    const cal_month = document.querySelector("#calMonth");
+    let now = new Date();	// 현재 날짜 및 시간
+    let year = now.getFullYear();	// 연도
+    let month = now.getMonth();
+    const last_date = new Date(`${year}`,`${month + 1}`,0);
+    const current_last_date = last_date.getDate();
+    console.log(`${year} ${month + 1} ${current_last_date}`);
+    cal_year.innerText = `${year}`
+    cal_month.innerText = `${month}`
+    // cal_date.innerText = `${date}`
+    
+ 
+
+
+
+    
+</script>
+</html>

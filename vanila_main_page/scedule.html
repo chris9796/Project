@@ -9,13 +9,16 @@
   /* Prevent the user selecting text in the example */
   user-select: none;
 }
-
+        li:hover{
+            cursor: pointer;
+        }
        li::marker{
         color: #1769ff;
        }
        li{
         font-weight: bolder;
         background-color: aqua;
+        box-shadow:5px 5px 5px 1px gray;
        }
        .date{
        color: #999;
@@ -25,9 +28,9 @@
         font-size: 22px;
        }
        ul{
-        line-height: 3em;
+        line-height: 45px;
        }
-       button{
+       .summary_btn{
         background: black;
         color: white;    
         border: 0px;
@@ -37,45 +40,67 @@
     .Detail_after{
         display: none;
     }
-    .dropzone {
-    
-}
+   
     </style>
+     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
+    <script type="text/javascript">
+        $(function() {
+    $("#itemBoxWrap").sortable({
+        
+        start: function(event, ui) {
+            ui.item.data('start_pos', ui.item.index());
+        },
+        stop: function(event, ui) {
+            var spos = ui.item.data('start_pos');
+            var epos = ui.item.index();
+			      reorder();
+        }
+    });
+    //$("#itemBoxWrap").disableSelection();
+    
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+});
+
+    </script>
+   
+   
 </head>
 <body>
     <aside style="background-color: aliceblue; position: fixed; top: 0px;
     right: 0px;
     height: 100%;
-    width: 20%;
+    width: 50%;
     overflow: scroll;
     ">
     <p>
         <strong>1일차</strong>
         <span class="date">2023.9.10(일)</span>
-        <button class="btn">Details</button>
-        <ul> 
+        <button class="summary_btn">Details</button>
+        <ul id="sortable"> 
 
-            <div class="dropzone">
-            <li class="draggable" draggable="true">hellor
+            
+            <li class="item" draggable="true">첫번째 제목
                 <p class="Detail_after">
-                    상세내용 등등등~~
+                    첫 번째 상세내용 등등등~~
                 </p>
             </li>
-            </div>
-            <div class="dropzone">
-            <li class="draggable" draggable="true">dafa
+         
+           
+            <li class="item" draggable="true">두번째 제목
                 <p class="Detail_after">
-                    상세내용 등등등~~ㅁㄴㅇㄻㄴㄹㄴㅇㄹ
+                    두 번째의 상세내용 등등등~~ㅁㄴㅇㄻㄴㄹㄴㅇㄹ
                 </p>
             </li>
-            </div>
-            <div class="dropzone">
-            <li class="draggable" draggable="true">adsfasdf
+          
+          
+            <li class="item" draggable="true">세번째 제목
                 <p class="Detail_after">
-                    상세내용 등등등~~
+                    세번째의 상세내용 등등등~~
                 </p>
             </li>
-            </div>
+           
       
         </ul>
     </p>
@@ -85,29 +110,9 @@
 </body>
 <script>
     const Detail = document.querySelectorAll(".Detail_after");
-    const btn = document.querySelector(".btn");
-    let dragged = null;
-
-    document.addEventListener("dragstart", (event) => {
-  // store a ref. on the dragged elem
-  dragged = event.target;
-});
-
-document.addEventListener("dragover", (event) => {
-  // prevent default to allow drop
-  event.preventDefault();
-});
-
-
-document.addEventListener("drop", (event) => {
-  // prevent default action (open as link for some elements)
-  event.preventDefault();
-  // move dragged element to the selected drop target
-  if (event.target.className == "dropzone") {
-    dragged.parentNode.removeChild(dragged);
-    event.target.appendChild(dragged);
-  }
-});
+    const btn = document.querySelector(".summary_btn");
+    
+    
 
 
 
@@ -129,5 +134,10 @@ document.addEventListener("drop", (event) => {
         }
     }
 
+
+
+</script>
+<script>
+    
 </script>
 </html>

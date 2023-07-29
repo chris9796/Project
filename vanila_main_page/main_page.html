@@ -18,26 +18,28 @@
   }
   .container_button_logo {
   position: absolute;
-  top: 350px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  
+  left: 40%;
+  
   background-color: #ffffff;
   padding: 10px;
-  border-radius: 5px;
+  
+  height: 100%;
 
 }
 #logo{
-    margin-bottom: 200px;
+    height: 60%;
     font-size: 200px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    
 
 }
 #start{
     background-image: url('your_background_image.jpg');
     background-position: center;
-    background-repeat: no-repeat;
+    
     background-size: cover;
-    background-color: aquamarine;
+    background-color: black;
     width: 200px;
     height: 50px;
     line-height: 50px;
@@ -47,16 +49,24 @@
     font-size: 24px;
     font-weight: bold;
     margin: 0 auto;
+    color: white;
+
+    
 }
 .theme {
-      width: 30%;
-      height: 80%;
+      width: 31%;
+      height: 95%;
       margin: 10px;
       display: inline-block;
-      border: 1px solid #ccc;
+      border: 5px solid #ffffff;
+      border-radius: 5ch;
       text-align: center;
       cursor: pointer;
       color: #ffffff;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight: bolder;
+      font-size:xx-large;
+      
     }
 
     
@@ -67,9 +77,19 @@
       height: 40%;
       width: 80%;
       background-color: black;
+      border-radius: 5ch;
+      white-space: nowrap;
     }
-    
+    #theme3{
+      right: 0%;
+    }
+    #theme2{
 
+    }
+    #theme3{
+      left: 0%;
+    }
+   
 
 </style>
 </head>
@@ -81,7 +101,7 @@
     <div class="container_button_logo">
         <div id="logo">Logo</div>   
       
-        <div id="start" onclick="showThemes()">시작하기</div>      
+        <div id="start" onclick="showThemes()" class="st">시작하기</div>      
     </div>
     
     <div id="theme_container" style="display: none;">
