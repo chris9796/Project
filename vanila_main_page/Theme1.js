@@ -10690,6 +10690,9 @@ center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
 level: 13 // 지도의 확대 레벨
 };
 
+let showmaps_value = 0;
+const btn = document.querySelector(".btn");
+
 var map = new kakao.maps.Map(mapContainer, mapOption),
 customOverlay = new kakao.maps.CustomOverlay({}),
 infowindow = new kakao.maps.InfoWindow({removable: true});
@@ -10697,7 +10700,15 @@ infowindow = new kakao.maps.InfoWindow({removable: true});
 // 지도에 영역데이터를 폴리곤으로 표시합니다 
 for (var i = 0, len = areas.length; i < len; i++) {
 displayArea(areas[i]);
+// if(showmaps_value === 1){
+//     areas.setMap(null);
+// }
+
 }
+
+
+
+
 
 // for(let i = 0, len = areas.length; i < len; i++ ){
 //     areas[i].setMap(null);
@@ -10714,7 +10725,7 @@ displayArea(areas[i]);
 function displayArea(area) {
 
                         // 다각형을 생성합니다 
-                        var polygon = new kakao.maps.Polygon({
+                        let polygon = new kakao.maps.Polygon({
                         map: map, // 다각형을 표시할 지도 객체
 
                         // options: center_p,
@@ -10804,7 +10815,6 @@ function displayArea(area) {
                         
 
 
-
                         //전부다 제거... 하는법이 
                         
                             var content = '<div class="info">' + 
@@ -10817,71 +10827,118 @@ function displayArea(area) {
                             infowindow.setPosition(mouseEvent.latLng); 
                             infowindow.setMap(map);
 
+                        
 
                             switch(area.name){
                                 case "서울특별시" :
                                             map.setLevel(8,{anchor:            new kakao.maps.LatLng(37.5666103,	126.9783882)});
-                                break;
+                               showmaps_value = 1;
+                               console.log(showmaps_value);
+                                            break;
                                 case "강원도" :
                                                 map.setLevel(10,{anchor:new kakao.maps.LatLng(37.8603672,	128.3115261)});
-                                    break;
+                                   showmaps_value = 1;
+                                                break;
                                 case "경기도" :
                                                 map.setLevel(10,{anchor:new kakao.maps.LatLng(37.4363177    ,	127.550802)});
-                                break;
+                               showmaps_value = 1;
+                                                break;
                                 case "경상남도" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(35.4414209    ,	128.2417453)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "경상북도" :
                                             map.setLevel(11,{anchor:new kakao.maps.LatLng(36.6308397    ,	128.962578)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "광주광역시" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(35.160032 ,	126.851338)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "대구광역시" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(35.87139  ,	128.601763)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "대전광역시" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(36.3504396    ,	127.3849508)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "부산광역시" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(35.179816 ,	129.0750223)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "세종특별자치시" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(36.4803512    ,	127.2894325)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "울산광역시" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(35.5394773    ,	129.3112994)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "전라남도" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(34.9007274    ,	126.9571667)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "전라북도" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(35.6910153    ,	127.2368291)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "제주특별자치도" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(33.384767,126.552954)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "충청남도" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(36.6173379    ,	126.8453965)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "충청북도" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(36.7853718    ,	127.6551404)});
-                                break;
+                               showmaps_value = 1;
+                                            break;
                                 case "인천광역시" :
                                             map.setLevel(10,{anchor:new kakao.maps.LatLng(37.4559418    ,	126.7051505)});
-                                break;
+                                showmaps_value = 1;
+                                            break;
+                               
                             }
+                           
+                        
+                            
+                        //  for(let i = 0, len = areas.length; i < len; i++ ){
+                        //   polygon.setMap(null);
+                        //    console.log(len);
 
-                            polygon.setMap(null);
-
-
+                        
+                        //          }
+                        
+                            
+                      
 
                     });
                         // for (var i = 0, len = areas.length; i < len; i++) {
                         // displayArea(areas[i]);
                         // }
                         
-  
-        
+                        // if
+                        // polygon.setMap(null);
+                    //     kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
+                    
+                    // });
+                    prevent
+                    btn.addEventListener('click',(e) => {
+                        e.preventDefault()
+                        console.log(showmaps_value);
+                    } 
+                   
+                    );
 }
+                       
+// console.log(showmaps_value);
+
+// if(showmaps_value === 1){
+    
+//     console.log(showmaps_value);
+// }
+
+
 
