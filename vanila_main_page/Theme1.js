@@ -10831,7 +10831,7 @@ function displayArea(area) {
 
                             switch(area.name){
                                 case "서울특별시" :
-                                            map.setLevel(8,{anchor:            new kakao.maps.LatLng(37.5666103,	126.9783882)});
+                                            map.setLevel(8,{anchor:new kakao.maps.LatLng(37.5666103,	126.9783882)});
                                showmaps_value = 1;
                                console.log(showmaps_value);
                                             break;
@@ -10904,14 +10904,20 @@ function displayArea(area) {
                            
                         
                             
-                        //  for(let i = 0, len = areas.length; i < len; i++ ){
-                        //   polygon.setMap(null);
-                        //    console.log(len);
+                         for(let i = 0, len = areas.length; i < len; i++ ){
+                          polygon.setMap(null);
+                           console.log(len);
 
                         
-                        //          }
+                                 }
+                        // console.log(showmaps_value)
+                        // if(showmaps_value === 1){
+    
+                        //     console.log(showmaps_value);
+                        //     polygon.setMap(null);
+                        // }
                         
-                            
+                        
                       
 
                     });
@@ -10920,25 +10926,20 @@ function displayArea(area) {
                         // }
                         
                         // if
-                        // polygon.setMap(null);
+                        //
                     //     kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
                     
                     // });
-                    prevent
-                    btn.addEventListener('click',(e) => {
-                        e.preventDefault()
-                        console.log(showmaps_value);
-                    } 
-                   
-                    );
+                 
+                    // btn.addEventListener('click',(e) => {
+                    //     e.preventDefault()
+                    //     console.log(showmaps_value);
+                    // } 
+                    
+                    // );
 }
                        
 // console.log(showmaps_value);
-
-// if(showmaps_value === 1){
-    
-//     console.log(showmaps_value);
-// }
 
 
 

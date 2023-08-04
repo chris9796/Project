@@ -212,11 +212,19 @@
     
         //결정하기 선택한후 선택한 날짜 가져오고 계산하기
         const btn = document.querySelector("#btn");
+      
        btn.addEventListener('click',() =>{
+        const ChoiceDay_first = document.getElementsByClassName("choiceDay")[1].innerText;
+        const ChoiceDay_last = document.getElementsByClassName("choiceDay")[0].innerText;
+       const travel_date = ChoiceDay_first - ChoiceDay_last + 1;
         
-       const travel_date = document.getElementsByClassName("choiceDay")[1].innerText - document.getElementsByClassName("choiceDay")[0].innerText +1;
-        
+
+
       alert(`여행하는 날이 ${travel_date}일이군요!`);
+      const ClickedYear = document.getElementById("calYear").innerText;
+      const ClickedMonth = document.getElementById("calMonth").innerText;
+        const travelFirstDate = new Date(ClickedYear,ClickedMonth,)
+
         
        });
 
