@@ -27,3 +27,58 @@
 } 
 </script>
 </html>
+<script>
+    function addLayOut(){
+    		console.log("addLayOut : debug [1]");
+
+
+    		/* 행 : div 레이아웃 생성 및 스타일 지정 */
+    		var createMainDiv = document.createElement("div");
+    		createMainDiv.setAttribute("id", "childMainDiv");
+    		var createMainDivStyle = "width:96%; height:10%; margin:1% auto; padding:0; border:none;";
+    		createMainDivStyle = createMainDivStyle + "float:top; position:relative; top:0%; left:0%;";
+    		createMainDiv.setAttribute("style", createMainDivStyle);
+    		//createDiv.setAttribute("onclick", "ButtonClick(this)");
+    		console.log("addLayOut : debug [2]");
+
+
+    		/* 생성한 div에 추가 컴포넌트 붙임 작업 */
+    		var createSecondOneDiv = document.createElement("div");
+    		createSecondOneDiv.setAttribute("id", "childSecondOneDiv");
+    		var createSecondOneDivStyle = "width:5%; height:100%; margin:0 auto; padding:0; border:none; background-color:#ff00ff;";
+    		createSecondOneDivStyle = createSecondOneDivStyle + "float:left; position:relative; top:0%; left:0%;";
+    		createSecondOneDiv.setAttribute("style", createSecondOneDivStyle);
+    		//createSecondOneDiv.setAttribute("onclick", "ButtonClick(this)");
+    		createMainDiv.appendChild(createSecondOneDiv); //[createMainDiv] 쪽에 붙임
+    		console.log("addLayOut : debug [3]");
+
+
+    		/* 생성한 div에 추가 컴포넌트 붙임 작업 */
+    		var createSecondTwoDiv = document.createElement("div");
+    		createSecondTwoDiv.setAttribute("id", "childSecondTwoDiv");
+    		var createSecondTwoDivStyle = "width:90%; height:100%; margin:0 auto; padding:0; border:none; background-color:#ff0000;";
+    		createSecondTwoDivStyle = createSecondTwoDivStyle + "float:left; position:relative; top:0%; left:0%; display:table;";
+    		createSecondTwoDiv.setAttribute("style", createSecondTwoDivStyle);
+    		//createSecondTwoDiv.setAttribute("onclick", "ButtonClick(this)");
+    		createMainDiv.appendChild(createSecondTwoDiv); //[createMainDiv] 쪽에 붙임
+    		console.log("addLayOut : debug [4]");
+
+
+    		/* 생성한 div에 추가 컴포넌트 붙임 작업 */
+    		var createSecondTwoDivTxt = document.createElement("p");
+    		createSecondTwoDivTxt.innerText = "hello"; //텍스트 삽입			
+    		createSecondTwoDivTxt.setAttribute("id", "childSecondTwoDivTxt");
+    		var createSecondTwoDivTxtStyle = "text-align:center; color:#ffffff; font-weight:bold; font-size:100%;";
+    		createSecondTwoDivTxtStyle = createSecondTwoDivTxtStyle + "display:table-cell; vertical-align : middle;";
+    		createSecondTwoDivTxt.setAttribute("style", createSecondTwoDivTxtStyle);			
+    		createSecondTwoDiv.appendChild(createSecondTwoDivTxt); //[createSecondTwoDiv] 쪽에 붙임
+    		console.log("addLayOut : debug [5]");
+
+
+    		/* 최종 지정한 부모쪽에 붙여 넣음 */
+    		var parentDiv = document.getElementById("main_container");
+    		parentDiv.appendChild(createMainDiv);
+    		console.log("addLayOut : debug [6]");
+    	}
+
+</script>
