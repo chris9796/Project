@@ -6,9 +6,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
 
-        body { background-color : skyblue; } 
+       
 
-        div {
+        .cal_div {
             background-color : white;
             height: auto;
             width: 400px;
@@ -19,7 +19,7 @@
             box-shadow:0px 40px 30px -20px rgba(0,0,0,0.3);
         }
 
-        td {
+        .cal_td{
             width: 50px;
             height: 50px;
         }
@@ -77,7 +77,7 @@
             font-weight: 600;
             cursor: pointer;
         }
-        #btn{
+        #cal_btn{
             background-color: rgb(141, 217, 250);
             border: 0px;
             border-radius: 5ch;
@@ -178,25 +178,25 @@
 </head>
 
 <body>
-    <div>
+    <div class="cal_div">
         <table class="Calendar">
             <thead>
                 <tr>
-                    <td onClick="prevCalendar();" style="cursor:pointer;">&#60;</td>
-                    <td colspan="5">
+                    <td class="cal_td" onClick="prevCalendar();" style="cursor:pointer;">&#60;</td>
+                    <td class="cal_td" colspan="5">
                         <span id="calYear"></span>년
                         <span id="calMonth"></span>월
                     </td>
-                    <td onClick="nextCalendar();" style="cursor:pointer;">&#62;</td>
+                    <td class="cal_td" onClick="nextCalendar();" style="cursor:pointer;">&#62;</td>
                 </tr>
                 <tr>
-                    <td>일</td>
-                    <td>월</td>
-                    <td>화</td>
-                    <td>수</td>
-                    <td>목</td>
-                    <td>금</td>
-                    <td>토</td>
+                    <td class="cal_td">일</td>
+                    <td class="cal_td">월</td>
+                    <td class="cal_td">화</td>
+                    <td class="cal_td">수</td>
+                    <td class="cal_td">목</td>
+                    <td class="cal_td">금</td>
+                    <td class="cal_td">토</td>
                 </tr>
             </thead>
 
@@ -204,7 +204,7 @@
             </tbody>
           
         </table>
-        <button id="btn">결정하기</button>
+        <button id="cal_btn">결정하기</button>
     </div>
 
 </body>
@@ -225,7 +225,7 @@
       const ClickedMonth = document.getElementById("calMonth").innerText;
         const travelFirstDate = new Date(ClickedYear,ClickedMonth,)
 
-        
+        // 8월에서만 가능 8월과 9월 선택 불가능
        });
 
 </script>

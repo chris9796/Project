@@ -9,25 +9,25 @@
   /* Prevent the user selecting text in the example */
   user-select: none;
 }
-        li:hover{
+        .item:hover{
             cursor: pointer;
         }
-       li::marker{
+       .item::marker{
         color: #1769ff;
        }
-       li{
+       .item{
         font-weight: bolder;
         background-color: aqua;
         box-shadow:5px 5px 5px 1px gray;
        }
-       .date{
+       .scedule_date{
        color: #999;
        font-size: smaller;
        }
-       strong{
+       .scedule_strong{
         font-size: 22px;
        }
-       ul{
+       .sortable{
         line-height: 45px;
        }
        .summary_btn{
@@ -42,9 +42,10 @@
     }
    
     </style>
+     
      <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
-    <script type="text/javascript">
+     <script type="text/javascript">
+        // let TravelDateFromPrompt = prompt("input travel date"); 
         $(function() {
     $("#itemBoxWrap").sortable({
         
@@ -64,19 +65,22 @@
 });
 
     </script>
+     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
+   
    
    
 </head>
 <body>
-    <aside style="background-color: aliceblue; position: fixed; top: 0px;
+    <aside style="background-color:
+     aliceblue; position: fixed; top: 0px;
     right: 0px;
     height: 100%;
     width: 50%;
     overflow: scroll;
     ">
     <p>
-        <strong>1일차</strong>
-        <span class="date">2023.9.10(일)</span>
+        <strong class="scedule_strong" >1일차</strong>
+        <span class="scedule_date">2023.9.10(일)</span>
         <button class="summary_btn">Details</button>
         <ul id="sortable"> 
 
@@ -111,14 +115,6 @@
 <script>
     const Detail = document.querySelectorAll(".Detail_after");
     const btn = document.querySelector(".summary_btn");
-    
-    
-
-
-
-
-
-    
     btn.addEventListener("click", Detail_btn_click);
     function Detail_btn_click(){
         for(let i = 0; i < Detail.length; i++){
@@ -133,11 +129,6 @@
             btn.innerText = "summary";
         }
     }
-    
-
-
 </script>
-<script>
-    
-</script>
+
 </html>

@@ -10690,8 +10690,6 @@ center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
 level: 13 // 지도의 확대 레벨
 };
 
-let showmaps_value = 0;
-const btn = document.querySelector(".btn");
 
 var map = new kakao.maps.Map(mapContainer, mapOption),
 customOverlay = new kakao.maps.CustomOverlay({}),
@@ -10723,7 +10721,7 @@ displayArea(areas[i]);
 
 // 다각형을 생상하고 이벤트를 등록하는 함수입니다
 function displayArea(area) {
-
+                        
                         // 다각형을 생성합니다 
                         let polygon = new kakao.maps.Polygon({
                         map: map, // 다각형을 표시할 지도 객체
