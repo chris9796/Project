@@ -1,3 +1,4 @@
+ var a = new Array();
  var areas = [
     {
         name : '강원도',
@@ -10697,7 +10698,7 @@ infowindow = new kakao.maps.InfoWindow({removable: true});
 
 // 지도에 영역데이터를 폴리곤으로 표시합니다 
 for (var i = 0, len = areas.length; i < len; i++) {
-displayArea(areas[i]);
+displayArea(areas[i],i);
 // if(showmaps_value === 1){
 //     areas.setMap(null);
 // }
@@ -10720,7 +10721,7 @@ displayArea(areas[i]);
 
 
 // 다각형을 생상하고 이벤트를 등록하는 함수입니다
-function displayArea(area) {
+function displayArea(area,d) {
                         
                         // 다각형을 생성합니다 
                         let polygon = new kakao.maps.Polygon({
@@ -10782,7 +10783,8 @@ function displayArea(area) {
                         fillOpacity: 0.7 ,
 
                         });
-
+                        a[d] = polygon;
+                        
                         // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
                         // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
                         kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
@@ -10902,12 +10904,9 @@ function displayArea(area) {
                            
                         
                             
-                         for(let i = 0, len = areas.length; i < len; i++ ){
-                          polygon.setMap(null);
-                           console.log(len);
-
-                        
-                                 }
+                        for(var i = 0; i < 17; i++){
+                            clearArea(a[i]);
+                        }
                         // console.log(showmaps_value)
                         // if(showmaps_value === 1){
     
@@ -10936,7 +10935,10 @@ function displayArea(area) {
                     
                     // );
 }
-                       
+function clearArea(area){
+    area.setMap(null);
+}                       
+
 // console.log(showmaps_value);
 
 

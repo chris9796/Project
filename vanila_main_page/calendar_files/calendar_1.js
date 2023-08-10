@@ -62,7 +62,8 @@ function choiceDate(newDIV) {
 
 
    
-    newDIV.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
+    newDIV.classList.add("choiceDay");           
+    // 선택된 날짜에 "choiceDay" class 추가
     
 }
 
