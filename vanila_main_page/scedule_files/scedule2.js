@@ -9,6 +9,7 @@
         let ClickedMonth;
         let ChoiceDay_first;
         let ChoiceDay_last
+        let Create_Nth_Day_i = 0;
        cal_btn.addEventListener('click',function cal_decide(){
        const cal_display_div = document.querySelector("#cal_display_id");
         cal_display_div.classList.add("cal_display");
@@ -25,16 +26,30 @@
       ClickedMonth = document.getElementById("calMonth").innerText - 1;
       travelFirstDate = [ClickedYear,ClickedMonth,ChoiceDay_first];
       travelLastDate = [ClickedYear,ClickedMonth,ChoiceDay_last];
-      console.log(travelFirstDate,travelLastDate);
-        // 8월에서만 가능 8월과 9월 선택 불가능
 
-       
+      // console.log(travelFirstDate,travelLastDate);
       
+      // 8월에서만 가능 8월과 9월 선택 불가능
+
+      let Nth_var_date_Array = new Array(travel_date);
+      for(let i = 0; i < Nth_var_date_Array.length; i++){
+        Nth_var_date_Array[i] = ChoiceDay_first;
+        ChoiceDay_first++;
+      }
+
+
+       let travel_date_reverse = new Array(travel_date);
+       for(let i = 0; i < travel_date_reverse.length; i++){
+        travel_date_reverse[i] = i + 1;
+        //console.log(travel_date_reverse);
+       }
+       
           while(travel_date != 0){
-                console.log(ChoiceDay_first,ChoiceDay_last);
-                Create_Nth_Day(travel_date);
-                
+               
+                Create_Nth_Day(travel_date,travel_date_reverse,Nth_var_date_Array);
+             
                 travel_date--;
+                
              }
        
        });
@@ -43,19 +58,22 @@
        //알고리즘 어떻게 할거야??
        //큰틀로 가장 중요한건 TRAVEL_DATE가 0이 될때까지로 하고 그걸 한번 실행할때마다 -- 를 하자.
 
-       function Create_Nth_Day(t_date){
-        
+       function Create_Nth_Day(t_date,t_d_reverse,var_date){
+      //console.log(t_date,t_d_reverse,var_date);
+
+
     //     function translate_date(t_date){
     //         while(let real_date = 0; t_){
     //             real_date 
     //         }
     //     }
-
-
+        
+        
         const newP = document.createElement('p');
         const newStrong = document.createElement('strong');
         const newSpan = document.createElement('span');
         const newButton = document.createElement('button');
+        const newHotel = document.createElement('p');
         // const newUl = document.createElement('ul');
         // const newLi = document.createElement('li');
         // const innerP = document.createElement('p');
@@ -67,9 +85,13 @@
         newStrong.className = "scedule_strong";
         newSpan.className = "date";
         newButton.className = "summary_btn";
-        newSpan.innerText = `${ClickedYear}.${ClickedMonth}.`;
-        newStrong.innerText = `${t_date}일차`;
-        
+        newSpan.innerText = `${ClickedYear}.${ClickedMonth}.${var_date[Create_Nth_Day_i]}`;
+        newStrong.innerText = `${t_d_reverse[Create_Nth_Day_i]}일차`;
+        newButton.innerText = `Details`;
+
+
+
+        Create_Nth_Day_i++;
         
         
         // newP.appendChild(newUl);
@@ -81,25 +103,30 @@
         // newUl.appendChild(newLi);
         // newLi.appendChild(innerP);
 
-
+        //호텔 칸 만들기 
+        for(let i = 0; t_date - 1 > i; i++){
+          newP.appendChild(newHotel);
+          newHotel.innerText = "HOTEL_CONTENTS";
+          
+        }
+    
         
+
+
+
+
+
+
+
           const aside = document.querySelector('aside');
         aside.appendChild(newP);
-
        }
 
 
        //new div
 
-
-
-
-
-
-
-
 //scedule_2.js
-console.log(travelFirstDate,travelLastDate);
+//console.log(travelFirstDate,travelLastDate);
 
 const Detail = document.querySelectorAll(".Detail_after");
     const btn = document.querySelector(".summary_btn");

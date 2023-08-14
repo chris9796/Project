@@ -18,6 +18,9 @@
     <!-- style -->
     <link rel="stylesheet" href="./calendar_files/calendar_1.css">
     <link rel="stylesheet" href="./scedule_files/scedule.css">
+    <!-- keyword_search.css -->
+    <link rel="stylesheet" href="./search_box_files/keyword_search.css">
+
     <!-- calendar js -->
     <script src="./calendar_files/calendar_1.js"></script>
     <!-- scedule -->
@@ -27,6 +30,23 @@
     <script src="./scedule_files/scedule1.js"></script>
 </head>
 <body class="lightgray">
+    <div class="map_wrap">
+        <div id="map" style="width:70%;height:900px;position:relative;overflow:hidden;"></div>
+        
+        <div id="menu_wrap" class="bg_white">
+            <div class="option">
+                <div>
+                    <form onsubmit="searchPlaces(); return false;">
+                        키워드 : <input type="text" value="" id="keyword" size="15"> 
+                        <button type="submit">검색하기</button> 
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <ul id="placesList"></ul>
+            <div id="pagination"></div>
+        </div>
+    </div>
    
 	<div id="map" 
     style="
@@ -109,6 +129,10 @@
   
   
     </aside>
+    <!-- search_box_script -->
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f0c6a044e26f03c73f43af805efd0633&libraries=services"></script>
+    <script src="./search_box_files/kewyword_search1.js"></script>
+
       <!-- calendar -->
     <!-- scedule -->
    <!-- newDiv -->
