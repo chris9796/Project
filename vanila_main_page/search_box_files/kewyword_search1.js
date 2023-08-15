@@ -10,7 +10,7 @@ var ps = new kakao.maps.services.Places();
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 // 키워드로 장소를 검색합니다
-//searchPlaces();
+searchPlaces();
 
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
@@ -54,6 +54,8 @@ let index_places;
 let index_i;
 let NewPlacesArray = new Array(15);
 
+
+
 // 검색 결과 목록과 마커를 표출하는 함수입니다
 function displayPlaces(places) {
 
@@ -79,69 +81,86 @@ function displayPlaces(places) {
             ArrayItemEl = getListItem(i, places[i]);
             // console.log(places[i]);
             itemEl = ArrayItemEl[0];  // 검색 결과 항목 Element를 생성합니다
-            index_places = ArrayItemEl[1];
-            console.log(itemEl);
+            // index_places = ArrayItemEl[1];
+
+            // console.log(places[i]);
             // itemEl.addListener('click',() => {
-                
+                // console.log(index_places);
             // });
-            switch(i) {
-                case 0:
-                    NewPlacesArray[0] = places[0];
-                break;
-                case 1:
-                    NewPlacesArray[1] = places[1];
-                break;
-                case 2:
-                    NewPlacesArray[2] = places[2];
-                break;
-                case 3:
-                    NewPlacesArray[3] = places[3];
-                break;
-                case 4:
-                    NewPlacesArray[4] = places[4];
-                break;
-                case 5:
-                    NewPlacesArray[5] = places[5];
-                break;
-                case 6:
-                    NewPlacesArray[6] = places[6];
-                break;
-                case 7:
-                    NewPlacesArray[7] = places[7];
-                break;
-                case 8:
-                    NewPlacesArray[8] = places[8];
-                break;
-                case 9:
-                    NewPlacesArray[9] = places[9];
-                break;
+            // switch(i) {
+            //     case 0:
+            //         OnclickPlace(places[0]);
+                
+            //         break;
+            //     case 1:
+            //         OnclickPlace(places[1]);
+                
+            //         break;
+            //     case 2:
+            //         OnclickPlace(places[2]);
+                
+            //         break;
+            //     case 3:
+            //         OnclickPlace(places[3]);
+                
+            //         break;
+            //     case 4:
+            //         OnclickPlace(places[4]);
+                
+            //         break;
+            //     case 5:
+            //         OnclickPlace(places[5]);
+                
+            //         break;
+            //     case 6:
+            //         OnclickPlace(places[6]);
+                
+            //         break;
+            //     case 7:
+            //         OnclickPlace(places[7]);
+                
+            //         break;
+            //     case 8:
+            //         OnclickPlace(places[8]);
+                
+            //         break;
+            //     case 9:
+            //         OnclickPlace(places[9]);
+                
+            //         break;
+                
+            //     case 10:
+            //         OnclickPlace(places[10]);
+                
+            //         break;
            
-                case 10:
-                    NewPlacesArray[10] = places[10];
-                break;
+            //     case 11:
+            //         OnclickPlace(places[11]);
+                
+            //         break;
            
-                case 11:
-                    NewPlacesArray[11] = places[11];
-                break;
+            //     case 12:
+            //         OnclickPlace(places[12]);
+                
+            //         break;
            
-                case 12:
-                    NewPlacesArray[12] = places[12];
-                break;
+            //     case 13:
+            //         OnclickPlace(places[13]);
+                
+            //         break;
            
-                case 13:
-                    NewPlacesArray[13] = places[13];
-                break;
-           
-                case 14:
-                    NewPlacesArray[14] = places[14];
-                break;
-           
+            //     case 14:
+            //         OnclickPlace(places[14]);
+                
+            //         break;
+            // }
+                
               //problem : 리스트들이 15개 쭈르륵 나옴 거기서 걸러서 가져가고싶은데...
               //2번째의 li를 선택하면 2가 나오게끔할수 없나??
               //클릭했을때 그 li가 몇번째 인지 알수 있는 방법 몇번째 인지 console로 띄우기
+                
 
-
-            }
+            
 
 
 
@@ -172,15 +191,14 @@ function displayPlaces(places) {
                 infowindow.close();
             });
             //수정 onclick으로 원래는 onmouseover//
-            itemEl.onclick =  function (index) {
+            itemEl.addEventListener('click',() => {
                 displayInfowindow(marker, title);
-                console.log(places[index_places]);
-                //숫자만 가져오면되는데
-                
-                
+               
+                    console.log(places[index_places]);
                 
 
-            };
+            });  
+          
 
             itemEl.onmouseout =  function () {
                 infowindow.close();
@@ -198,14 +216,15 @@ function displayPlaces(places) {
     map.setBounds(bounds);
 }
 
+
 // 검색결과 항목을 Element로 반환하는 함수입니다
 function getListItem(index, places) {
-   
+ 
     var el = document.createElement('li'),
     itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
                 '<div class="info">' +
                 '   <h5>' + places.place_name + '</h5>';
-
+ 
     if (places.road_address_name) {
         itemStr += '    <span>' + places.road_address_name + '</span>' +
                     '   <span class="jibun gray">' +  places.address_name  + '</span>';
@@ -218,9 +237,21 @@ function getListItem(index, places) {
 
     el.innerHTML = itemStr;
     el.className = 'item';
+      
+    el.addEventListener('click', function() {
+        onListItemClick(index);
+    });
 
-   console.log(index);
+ 
     return [el,index];
+}
+function onListItemClick(index) {
+    // 클릭된 항목에 대한 처리를 여기에 작성합니다.
+     // NewPlacesArray는 검색 결과를 저장한 배열
+    // 예: 클릭된 장소의 정보를 활용하여 무엇인가를 수행하거나 특정 기능을 호출
+    // 예: 클릭한 장소의 정보를 이용해서 지도에서 해당 위치로 이동
+    index_places = index; // 예시로 클릭한 장소 정보를 콘솔에 출력
+    
 }
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다

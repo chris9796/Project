@@ -7,10 +7,18 @@
 </head>
 <body>
     <ul>
-        <li>첫번째 입니다</li>
-        <li>두번째 입니다</li>
-        <li></li>   
-        <li></li>
+        <li class="list1">첫번째 입니다</li>
+        <li class="list2">두번째 입니다</li>
+        <li class="list3"></li>   
+        <li class="list4"></li>
     </ul>
 </body>
+<script>
+   let li = document.querySelectorAll("body > ul > li");
+    console.log(li);
+   li.addEventListener("click",() => {
+    
+    alert("hi");
+   });
+</script>
 </html>

@@ -10837,7 +10837,8 @@ function displayArea(area,d) {
                                             break;
                                 case "강원도" :
                                                 map.setLevel(10,{anchor:new kakao.maps.LatLng(37.8603672,	128.3115261)});
-                                   showmaps_value = 1;
+                                                showmaps_value = 1;
+                                            
                                                 break;
                                 case "경기도" :
                                                 map.setLevel(10,{anchor:new kakao.maps.LatLng(37.4363177    ,	127.550802)});
